@@ -1,0 +1,38 @@
+
+PROCEDURE dot_product( VAR ps:INTEGER ,VAR v1: ARRAY_OF INTEGER,  VAR V2:ARRAY_OF INTEGER,n:INTEGER)
+VAR
+    i:INTEGER;   
+BEGIN
+
+    FOR i FROM 0 TO n-1 STEP step  DO
+        ps+= (v1[i]*v2[i])
+    END_FOR
+    write(ps) 
+END
+
+// ALGO 
+ALGORITHM ortoghonaux
+VAR
+    i,n: INTEGER;
+    arr:ARRAY_OF INTEGER [n]
+BEGIN
+FOR i FROM 0 TO n-1 STEP step  DO
+    read(arr[i])
+END_FOR
+    dot_product(ps,v1,v2,n)
+    IF (ps==0) THEN
+        write("les deux vecteurs sont ortpgonaux")
+        else
+        write(" les deux vecteurs sont non ortoghonaux")
+    END_IF    
+END
+// FUNCTION 
+FUNCTION dot_product (ps:INTEGER ,v1: ARRAY_OF INTEGER,V2:ARRAY_OF INTEGER,n:INTEGER) :INTEGER
+VAR
+    i:INTEGER; 
+BEGIN
+    FOR i FROM 0 TO n-1 STEP step  DO
+        ps+= (v1[i]*v2[i])
+    END_FOR
+    RETURN PS ;
+END
