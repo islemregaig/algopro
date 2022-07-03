@@ -1,38 +1,45 @@
 
-PROCEDURE dot_product( VAR ps:INTEGER ,VAR v1: ARRAY_OF INTEGER,  VAR V2:ARRAY_OF INTEGER,n:INTEGER)
+// procedure
+
+PROCEDURE dot_product( v1: ARRAY_OF INTEGER, V2:ARRAY_OF INTEGER,VAR ps:FLOAT)
 VAR
-    i:INTEGER;   
+    i:INTEGER;
+    ps:=0;   
 BEGIN
 
-    FOR i FROM 0 TO n-1 STEP step  DO
-        ps+= (v1[i]*v2[i])
+    ps:= v1[0]*v2[0] +v1[1]*v2[1]
     END_FOR
     write(ps) 
+END
+
+// FUNCTION
+
+FUNCTION dot_product (v1:ARRAY_OF INTEGER,V2:ARRAY_OF INTEGER,VAR ps:FLOAT) :INTEGER
+VAR
+    i:INTEGER; 
+    ps:=0;
+BEGIN
+    ps:= v1[0]*v2[0] +v1[1]*v2[1]
+    END_FOR
+    RETURN PS 
 END
 
 // ALGO 
 ALGORITHM ortoghonaux
 VAR
-    i,n: INTEGER;
-    arr:ARRAY_OF INTEGER [n]
+    i,j: INTEGER;
+    arr:ARRAY_OF INTEGER
 BEGIN
-FOR i FROM 0 TO n-1 STEP step  DO
-    read(arr[i])
+FOR i FROM 0 TO arr.length -1  DO
+FOR j FROM i+1 TO arr.length -1 DO
+    v1:=arr[i]
+    v2:=arr[j]
+    dot_product(v1,v2 , VAR sps)
 END_FOR
-    dot_product(ps,v1,v2,n)
+END_FOR
     IF (ps==0) THEN
-        write("les deux vecteurs sont ortpgonaux")
+        write("V1 et V2 sont ortpgonaux")
         else
-        write(" les deux vecteurs sont non ortoghonaux")
+        write("V1 et V2  ne sont pas ortoghonaux")
     END_IF    
-END
-// FUNCTION 
-FUNCTION dot_product (ps:INTEGER ,v1: ARRAY_OF INTEGER,V2:ARRAY_OF INTEGER,n:INTEGER) :INTEGER
-VAR
-    i:INTEGER; 
-BEGIN
-    FOR i FROM 0 TO n-1 STEP step  DO
-        ps+= (v1[i]*v2[i])
-    END_FOR
-    RETURN PS ;
 END
